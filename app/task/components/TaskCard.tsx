@@ -47,7 +47,7 @@ export function TaskCard({ task, index, onDelete }: TaskCardProps) {
             type="button"
             onClick={() => onDelete(task)}
             aria-label={`Excluir a tarefa ${task.titulo}`}
-            className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-red-50 hover:text-red-600"
+            className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-red-50 hover:text-red-600 cursor-pointer"
           >
             <Trash2 className="size-4" />
           </button>
