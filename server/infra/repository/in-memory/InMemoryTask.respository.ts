@@ -1,12 +1,12 @@
 import { randomUUID } from "node:crypto";
-import { TaskNotFoundError } from "../../domain/Errors";
-import type { CursorPositionInputDto } from "../../domain/Pagination";
+import { TaskNotFoundError } from "../../../domain/Errors";
+import type { CursorPositionInputDto } from "../../../domain/Pagination";
 import type {
   CreateTaskInputDto,
   Task,
   UpdateTaskInputDto,
-} from "../../domain/Task";
-import type { ITaskRepository } from "../../domain/ITask.repository";
+} from "../../../domain/Task";
+import type { ITaskRepository } from "../../../domain/ITask.repository";
 
 /** Mesma ordenação do banco: dataCriacao desc, id desc. Negativo = "a" vem antes de "b". */
 function compare(a: CursorPositionInputDto, b: CursorPositionInputDto): number {

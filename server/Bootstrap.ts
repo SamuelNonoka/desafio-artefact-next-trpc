@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { makeUseCases } from "./application/use-cases";
-import { PrismaTaskRepository } from "./infra/prisma/PrismaTask.repository";
+import { PrismaTaskRepository } from "./infra/repository/prisma/PrismaTask.repository";
 
 /**
  * Composition root: o único lugar que decide quais implementações concretas usar.

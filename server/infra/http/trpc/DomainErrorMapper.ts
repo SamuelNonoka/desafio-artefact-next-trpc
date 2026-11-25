@@ -3,7 +3,7 @@ import {
   type DomainError,
   InvalidCursorError,
   TaskNotFoundError,
-} from "../../domain/Errors";
+} from "../../../domain/Errors";
 
 /** Único ponto que traduz erros de domínio para códigos tRPC/HTTP. */
 export function toTRPCError(error: DomainError): TRPCError {

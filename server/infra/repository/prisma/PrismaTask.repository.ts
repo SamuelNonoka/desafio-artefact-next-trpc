@@ -1,12 +1,12 @@
 import { Prisma, type PrismaClient } from "@prisma/client";
-import { TaskNotFoundError } from "../../domain/Errors";
-import type { CursorPositionInputDto } from "../../domain/Pagination";
+import { TaskNotFoundError } from "../../../domain/Errors";
+import type { CursorPositionInputDto } from "../../../domain/Pagination";
 import type {
   CreateTaskInputDto,
   Task,
   UpdateTaskInputDto,
-} from "../../domain/Task";
-import type { ITaskRepository } from "../../domain/ITask.repository";
+} from "../../../domain/Task";
+import type { ITaskRepository } from "../../../domain/ITask.repository";
 import { toDomain } from "./Task.acl";
 
 /** P2025 = "registro não encontrado" (ex.: excluído entre a verificação e a escrita). */

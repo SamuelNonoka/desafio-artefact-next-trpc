@@ -4,7 +4,7 @@ import {
   listTasksInput,
   taskIdInput,
   updateTaskInput,
-} from "../../../domain/Task.schema";
+} from "../../../../domain/Task.schema";
 
 /** Camada fina: valida a entrada (Zod), chama o caso de uso e devolve o resultado. */
 export const taskRouter = router({

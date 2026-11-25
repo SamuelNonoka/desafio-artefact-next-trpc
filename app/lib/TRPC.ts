@@ -1,7 +1,7 @@
 import { createTRPCReact } from "@trpc/react-query";
 import type { inferRouterOutputs } from "@trpc/server";
 // Importa somente o TIPO do backend: nenhum código do servidor vai para o navegador
-import type { AppRouter } from "@/server/http/trpc/routes/Index";
+import type { AppRouter } from "@/server/infra/http/trpc/routes/Index";
 
 export const trpc = createTRPCReact<AppRouter>();
 

@@ -1,7 +1,7 @@
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError, z } from "zod";
-import { DomainError } from "../../domain/Errors";
+import { DomainError } from "../../../domain/Errors";
 import type { Context } from "./Context";
 import { toTRPCError } from "./DomainErrorMapper";
 

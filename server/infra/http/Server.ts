@@ -1,7 +1,7 @@
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import cors from "cors";
 import express from "express";
-import type { UseCases } from "../application/use-cases";
+import type { UseCases } from "../../application/use-cases";
 import { appRouter } from "./trpc/routes/Index";
 
 type ServerOptions = {

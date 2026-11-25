@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { Task } from "../../domain/Task";
+import type { Task } from "../../../domain/Task";
 
 /**
  * Fronteira com o banco: valida a linha do Prisma e converte null -> undefined.
