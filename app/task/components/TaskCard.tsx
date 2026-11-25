@@ -37,7 +37,7 @@ export function TaskCard({ task, index, onDelete }: TaskCardProps) {
         {/* No desktop as ações aparecem no hover; no celular ficam sempre visíveis */}
         <div className="flex shrink-0 gap-1 transition-opacity duration-200 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
           <Link
-            href={`/tarefas/${task.id}/editar`}
+            href={`/task/${task.id}/edit`}
             aria-label={`Editar a tarefa ${task.titulo}`}
             className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-indigo-50 hover:text-indigo-600"
           >

@@ -14,8 +14,13 @@ import { useListTask } from "@/app/task/hooks/useListTask";
 
 export default function TaskListPage() {
   const { query, tasks, sentinelRef } = useListTask();
-  const { taskToDelete, requestDelete, closeDialog, confirmDelete, isDeleting } =
-    useDeleteTask();
+  const {
+    taskToDelete,
+    requestDelete,
+    closeDialog,
+    confirmDelete,
+    isDeleting,
+  } = useDeleteTask();
   const isInitialLoading = query.isPending;
   const isErrorState = query.isError && !query.data;
   const isEmptyState = tasks.length === 0 && !query.hasNextPage;
@@ -105,7 +110,7 @@ export default function TaskListPage() {
             Organize o que precisa ser feito.
           </p>
         </div>
-        <Link href="/tarefas/nova" className={buttonClasses("primary")}>
+        <Link href="/task/new" className={buttonClasses("primary")}>
           <Plus className="size-4" aria-hidden /> Nova tarefa
         </Link>
       </div>
