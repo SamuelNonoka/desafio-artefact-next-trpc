@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TRPCClientError, httpBatchLink } from "@trpc/client";
 import { useState, type ReactNode } from "react";
 import superjson from "superjson";
-import { trpc } from "./TRPC";
+import { trpc } from "./lib/TRPC";
 
 /** No navegador usa URL relativa; na renderização do servidor precisa da URL completa. */
 function getBaseUrl() {

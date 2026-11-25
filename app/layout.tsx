@@ -29,7 +29,7 @@ export default function RootLayout({
                   <ListTodo className="size-5" />
                 </span>
                 <span className="text-lg font-semibold tracking-tight">
-                  DesafioArtefact
+                  Desafio Artefact - Samuel Pereira
                 </span>
               </Link>
             </div>
