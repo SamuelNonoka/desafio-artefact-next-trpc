@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Animações básicas: viram utilitários como "animate-fade-in-up" */
+@theme {
+  --animate-fade-in: fade-in 0.3s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.4s ease-out both;
+  --animate-scale-in: scale-in 0.2s ease-out both;
+  --animate-shake: shake 0.4s ease-in-out;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20%,
+    60% {
+      transform: translateX(-4px);
+    }
+    40%,
+    80% {
+      transform: translateX(4px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Acessibilidade: quem prefere menos movimento não vê as animações */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
