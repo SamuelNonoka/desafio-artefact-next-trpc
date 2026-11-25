@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Button } from "./Button";
+import { Button } from "../Button";
 
 const meta = {
   title: "UI/Button",
@@ -21,7 +21,9 @@ export const Primary: Story = { args: { variant: "primary" } };
 export const Secondary: Story = {
   args: { variant: "secondary", children: "Cancelar" },
 };
-export const Danger: Story = { args: { variant: "danger", children: "Excluir" } };
+export const Danger: Story = {
+  args: { variant: "danger", children: "Excluir" },
+};
 export const Ghost: Story = { args: { variant: "ghost", children: "Voltar" } };
 export const Loading: Story = { args: { loading: true, children: "Salvando" } };
 export const Disabled: Story = { args: { disabled: true } };

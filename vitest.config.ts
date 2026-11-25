@@ -7,6 +7,6 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    include: ["server/**/*.{test,spec}.ts"],
+    include: ["server/**/*.{test,spec}.ts", "app/**/*.{test,spec}.{ts,tsx}"],
   },
 });

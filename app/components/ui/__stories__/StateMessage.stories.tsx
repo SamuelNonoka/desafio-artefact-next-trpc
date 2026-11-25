@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { AlertTriangle, Inbox } from "lucide-react";
-import { Button } from "./Button";
-import { StateMessage } from "./StateMessage";
+import { Button } from "../Button";
+import { StateMessage } from "../StateMessage";
 
 const meta = {
   title: "UI/StateMessage",
