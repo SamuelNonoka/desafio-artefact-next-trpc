@@ -5,7 +5,7 @@ import type { CreateTaskInputDto, Task, UpdateTaskInputDto } from "./Task";
  * Contrato de persistência de tarefas.
  * Implementações: PrismaTaskRepository (produção) e InMemoryTaskRepository (testes).
  */
-export interface TaskRepository {
+export interface ITaskRepository {
   /** Tarefas ordenadas por dataCriacao desc, id desc, a partir de "after" (exclusivo). */
   findAfter(params: {
     after?: CursorPositionInputDto;
@@ -13,8 +13,8 @@ export interface TaskRepository {
   }): Promise<Task[]>;
   findById(id: string): Promise<Task | undefined>;
   create(data: CreateTaskInputDto): Promise<Task>;
-  /** Substitui os dados editáveis. Lança TaskNotFoundError se a tarefa não existir. */
-  update(id: string, data: UpdateTaskInputDto): Promise<Task>;
+  /** Substitui os dados editáveis. Retorna undefined se a tarefa não existir. */
+  update(id: string, data: UpdateTaskInputDto): Promise<Task | undefined>;
   /** Lança TaskNotFoundError se a tarefa não existir. */
   delete(id: string): Promise<void>;
 }

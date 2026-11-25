@@ -9,3 +9,8 @@ export type CursorPositionInputDto = {
   dataCriacao: Date;
   id: string;
 };
+
+export type CursorPositionOutputDto = {
+  dataCriacao: Date;
+  id: string;
+};
