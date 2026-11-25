@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useId } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { Button, buttonClasses } from "@/app/components/ui/Button";
 import { useTaskFormHook } from "@/app/task/hooks/taskFormHook";
@@ -35,6 +35,10 @@ export function TaskForm({
   onSubmit,
 }: TaskFormProps) {
   const { inputClasses } = useTaskFormHook();
+  // Ids únicos por instância: com Cache Components, rotas ocultas continuam no DOM
+  const uid = useId();
+  const tituloId = `${uid}-titulo`;
+  const descricaoId = `${uid}-descricao`;
   const {
     register,
     handleSubmit,
@@ -73,35 +77,35 @@ export function TaskForm({
     >
       <fieldset disabled={pending} className="space-y-6">
         <Field
-          id="titulo"
+          id={tituloId}
           label="Título"
           error={errors.titulo?.message}
           counter={`${titulo.length}/${TITULO_MAX}`}
         >
           <input
-            id="titulo"
+            id={tituloId}
             autoFocus
             placeholder="Ex.: Estudar tRPC"
             aria-invalid={!!errors.titulo}
-            aria-describedby={errors.titulo ? "titulo-error" : undefined}
+            aria-describedby={errors.titulo ? `${tituloId}-error` : undefined}
             className={inputClasses(!!errors.titulo)}
             {...register("titulo")}
           />
         </Field>
 
         <Field
-          id="descricao"
+          id={descricaoId}
           label="Descrição"
           optional
           error={errors.descricao?.message}
           counter={`${descricao.length}/${DESCRICAO_MAX}`}
         >
           <textarea
-            id="descricao"
+            id={descricaoId}
             rows={5}
             placeholder="Detalhes da tarefa (opcional)"
             aria-invalid={!!errors.descricao}
-            aria-describedby={errors.descricao ? "descricao-error" : undefined}
+            aria-describedby={errors.descricao ? `${descricaoId}-error` : undefined}
             className={`${inputClasses(!!errors.descricao)} resize-y`}
             {...register("descricao")}
           />

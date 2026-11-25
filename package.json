@@ -19,7 +19,9 @@
     "db:studio": "prisma studio",
     "postinstall": "prisma generate",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:e2e": "DATABASE_URL=file:./e2e.db prisma migrate reset --force && playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -44,6 +46,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@storybook/addon-a11y": "^10.6.9",
     "@storybook/addon-docs": "^10.6.9",
     "@storybook/nextjs-vite": "^10.6.9",

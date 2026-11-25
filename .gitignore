@@ -46,3 +46,8 @@ prisma/*.db
 prisma/*.db-journal
 *storybook.log
 storybook-static
+
+# playwright
+/test-results
+/playwright-report
+/playwright/.cache
