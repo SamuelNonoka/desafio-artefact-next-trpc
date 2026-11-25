@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { TaskNotFoundError } from "@/src/domain/Errors";
+import { TaskNotFoundError } from "@/server/domain/Errors";
 import { setupIntegration } from "./integration-helpers";
 
 const ctx = setupIntegration();

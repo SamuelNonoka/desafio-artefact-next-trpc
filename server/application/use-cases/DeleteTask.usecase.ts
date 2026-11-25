@@ -1,5 +1,5 @@
-import { TaskNotFoundError } from "@/src/domain/Errors";
-import { ITaskRepository } from "@/src/domain/ITask.repository";
+import { TaskNotFoundError } from "@/server/domain/Errors";
+import { ITaskRepository } from "@/server/domain/ITask.repository";
 
 export class DeleteTaskUseCase {
   constructor(private readonly tasks: ITaskRepository) {}

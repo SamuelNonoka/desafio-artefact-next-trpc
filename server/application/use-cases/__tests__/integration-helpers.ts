@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, vi } from "vitest";
-import { InMemoryTaskRepository } from "@/src/infra/in-memory/InMemoryTask.respository";
+import { InMemoryTaskRepository } from "@/server/infra/in-memory/InMemoryTask.respository";
 import { makeUseCases, type UseCases } from "..";
 
 /**

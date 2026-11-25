@@ -1,6 +1,6 @@
 import { Prisma, type PrismaClient } from "@prisma/client";
 import { describe, expect, it, vi } from "vitest";
-import { TaskNotFoundError } from "@/src/domain/Errors";
+import { TaskNotFoundError } from "@/server/domain/Errors";
 import { PrismaTaskRepository } from "../PrismaTask.repository";
 
 const date = new Date("2024-01-01T00:00:00.000Z");

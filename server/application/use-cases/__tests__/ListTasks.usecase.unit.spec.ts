@@ -1,7 +1,7 @@
-import type { Task } from "@/src/domain/Task";
+import type { Task } from "@/server/domain/Task";
 import { describe, expect, it } from "vitest";
 import { decodeCursor, encodeCursor } from "../../Cursor";
-import { InvalidCursorError } from "@/src/domain/Errors";
+import { InvalidCursorError } from "@/server/domain/Errors";
 import { ListTasksUseCase } from "../ListTasks.usecase";
 import { makeRepoMock, makeTask } from "./helpers";
 

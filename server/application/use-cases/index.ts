@@ -1,4 +1,4 @@
-import { ITaskRepository } from "@/src/domain/ITask.repository";
+import { ITaskRepository } from "@/server/domain/ITask.repository";
 import { ListTasksUseCase } from "./ListTasks.usecase";
 import { FindTaskUseCase } from "./GetTask.usecase";
 import { CreateTaskUseCase } from "./CreateTask.usecase";

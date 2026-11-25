@@ -1,6 +1,6 @@
 import { vi } from "vitest";
-import type { ITaskRepository } from "@/src/domain/ITask.repository";
-import type { Task } from "@/src/domain/Task";
+import type { ITaskRepository } from "@/server/domain/ITask.repository";
+import type { Task } from "@/server/domain/Task";
 
 export function makeRepoMock(): { [K in keyof ITaskRepository]: ReturnType<typeof vi.fn> } & ITaskRepository {
   return {

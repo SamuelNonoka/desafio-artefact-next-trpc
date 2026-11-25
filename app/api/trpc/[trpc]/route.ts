@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { useCases } from "@/src/Bootstrap";
-import { appRouter } from "@/src/http/trpc/routes/Index";
+import { useCases } from "@/server/Bootstrap";
+import { appRouter } from "@/server/http/trpc/routes/Index";
 
 /** Expõe o router tRPC em /api/trpc (substitui o servidor Express). */
 function handler(req: Request) {

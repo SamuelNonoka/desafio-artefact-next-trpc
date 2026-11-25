@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { InvalidCursorError } from "@/src/domain/Errors";
+import { InvalidCursorError } from "@/server/domain/Errors";
 import { listAll, seed, setupIntegration } from "./integration-helpers";
 
 const ctx = setupIntegration();
