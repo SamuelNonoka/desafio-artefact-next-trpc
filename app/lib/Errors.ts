@@ -2,16 +2,16 @@ import { TRPCClientError } from "@trpc/client";
 
 const GENERIC_MESSAGE = "Ocorreu um erro inesperado. Tente novamente.";
 
-/** Código tRPC do erro (NOT_FOUND, BAD_REQUEST...) ou undefined se não for erro da API. */
+/** tRPC error code (NOT_FOUND, BAD_REQUEST...) or undefined if it is not an API error. */
 export function getErrorCode(error: unknown): string | undefined {
   return error instanceof TRPCClientError ? error.data?.code : undefined;
 }
 
-/** Mensagem amigável para exibir em toasts e telas de erro. */
+/** Friendly message to show in toasts and error screens. */
 export function getErrorMessage(error: unknown): string {
   if (!(error instanceof TRPCClientError)) return GENERIC_MESSAGE;
 
-  // Sem "data" = a requisição nem chegou à API (servidor fora do ar, sem internet)
+  // No "data" = the request never reached the API (server down, no internet)
   if (!error.data)
     return "Não foi possível conectar ao servidor. Verifique sua conexão.";
   if (error.data.zodError) return "Verifique os campos destacados.";
@@ -20,7 +20,7 @@ export function getErrorMessage(error: unknown): string {
   return error.message;
 }
 
-/** Erros de validação por campo enviados pela API ({ titulo: ["..."] }). */
+/** Per-field validation errors sent by the API ({ titulo: ["..."] }). */
 export function getFieldErrors(
   error: unknown,
 ): Record<string, string[] | undefined> {

@@ -6,10 +6,10 @@ import type { Context } from "./Context";
 import { toTRPCError } from "./DomainErrorMapper";
 
 const t = initTRPC.context<Context>().create({
-  // Preserva tipos como Date entre servidor e cliente
+  // Preserves types like Date between server and client
   transformer: superjson,
 
-  // Padroniza a resposta de erro: inclui os erros de validação por campo
+  // Standardizes the error response: includes per-field validation errors
   errorFormatter({ shape, error }) {
     return {
       ...shape,
@@ -24,7 +24,7 @@ const t = initTRPC.context<Context>().create({
   },
 });
 
-/** Converte erros de domínio (TaskNotFoundError etc.) em TRPCError com o código certo. */
+/** Converts domain errors (TaskNotFoundError etc.) into TRPCError with the right code. */
 const mapDomainErrors = t.middleware(async ({ next }) => {
   const result = await next();
   if (!result.ok && result.error.cause instanceof DomainError) {

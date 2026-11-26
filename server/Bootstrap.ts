@@ -3,8 +3,8 @@ import { makeUseCases } from "./application/use-cases";
 import { PrismaTaskRepository } from "./infra/repository/prisma/PrismaTask.repository";
 
 /**
- * Composition root: o único lugar que decide quais implementações concretas usar.
- * Para trocar de banco, basta trocar o repositório aqui.
+ * Composition root: the only place that decides which concrete implementations to use.
+ * To switch databases, just swap the repository here.
  */
 export const useCases = makeUseCases(
   new PrismaTaskRepository(new PrismaClient()),

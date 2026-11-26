@@ -2,8 +2,8 @@ import { z } from "zod";
 import type { Task } from "../../../domain/Task";
 
 /**
- * Fronteira com o banco: valida a linha do Prisma e converte null -> undefined.
- * Daqui para fora, a aplicação só trabalha com undefined.
+ * Database boundary: validates the Prisma row and converts null -> undefined.
+ * From here outward, the application only deals with undefined.
  */
 export const TaskRowSchema = z.object({
   id: z.string(),

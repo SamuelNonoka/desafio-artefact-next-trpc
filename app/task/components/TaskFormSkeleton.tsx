@@ -1,4 +1,4 @@
-/** Placeholder animado (pulse) exibido enquanto o formulário de tarefa carrega. */
+/** Animated (pulse) placeholder shown while the task form loads. */
 
 export function TaskFormSkeleton() {
   return (

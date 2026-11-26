@@ -40,7 +40,7 @@ export default function EditTaskPage() {
     );
   }
 
-  // Erro: tarefa inexistente (ou ID inválido na URL) x falha genérica
+  // Error: nonexistent task (or invalid ID in the URL) vs. generic failure
   if (task.isError) {
     const code = getErrorCode(task.error);
     const notFound = code === "NOT_FOUND" || code === "BAD_REQUEST";

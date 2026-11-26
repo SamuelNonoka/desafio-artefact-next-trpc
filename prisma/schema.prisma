@@ -13,6 +13,6 @@ model Task {
   descricao   String?
   dataCriacao DateTime @default(now())
 
-  // Acompanha a ordenação da listagem (paginação por cursor/keyset)
+  // Matches the list ordering (cursor/keyset pagination)
   @@index([dataCriacao, id])
 }

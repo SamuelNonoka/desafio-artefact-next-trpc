@@ -8,14 +8,14 @@ import type {
 } from "../../../domain/Task";
 import type { ITaskRepository } from "../../../domain/ITask.repository";
 
-/** Mesma ordenação do banco: dataCriacao desc, id desc. Negativo = "a" vem antes de "b". */
+/** Same ordering as the database: dataCriacao desc, id desc. Negative = "a" comes before "b". */
 function compare(a: CursorPositionInputDto, b: CursorPositionInputDto): number {
   const byDate = b.dataCriacao.getTime() - a.dataCriacao.getTime();
   if (byDate !== 0) return byDate;
   return a.id > b.id ? -1 : a.id < b.id ? 1 : 0;
 }
 
-/** Implementação em memória, usada nos testes (sem banco). */
+/** In-memory implementation, used in tests (no database). */
 export class InMemoryTaskRepository implements ITaskRepository {
   private items: Task[] = [];
 

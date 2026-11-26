@@ -3,7 +3,7 @@ import { z } from "zod";
 export const TITULO_MAX = 120;
 export const DESCRICAO_MAX = 1000;
 
-/** Mesmas regras do backend: o usuário vê o erro antes de enviar. */
+/** Same rules as the backend: the user sees the error before submitting. */
 export const taskFormSchema = z.object({
   titulo: z
     .string()

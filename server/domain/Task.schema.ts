@@ -6,7 +6,7 @@ const titulo = z
   .min(1, "Título é obrigatório")
   .max(120, "O título deve ter no máximo 120 caracteres");
 
-// Opcional: vazio, null ou ausente viram undefined
+// Optional: empty, null or missing become undefined
 const descricao = z
   .string()
   .trim()
@@ -23,8 +23,8 @@ export const createTaskInput = z.object({ titulo, descricao });
 export const updateTaskInput = z.object({ id, titulo, descricao });
 
 export const listTasksInput = z.object({
-  // O tRPC exige o nome "cursor" para funcionar com useInfiniteQuery.
-  // Na primeira página o cliente envia null; normalizamos para undefined aqui na borda.
+  // tRPC requires the name "cursor" to work with useInfiniteQuery.
+  // On the first page the client sends null; we normalize it to undefined here at the boundary.
   cursor: z
     .string()
     .nullish()

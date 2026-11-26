@@ -25,7 +25,7 @@ export function createServer({ useCases, corsOrigin }: ServerOptions) {
       router: appRouter,
       createContext: () => ({ useCases }),
       onError({ path, error }) {
-        // Validação e 404 são esperados; só registramos o que é inesperado
+        // Validation and 404 are expected; only log what is unexpected
         if (error.code === "INTERNAL_SERVER_ERROR") {
           console.error(
             `❌ Erro inesperado em "${path}":`,
@@ -36,7 +36,7 @@ export function createServer({ useCases, corsOrigin }: ServerOptions) {
     }),
   );
 
-  // Qualquer rota fora de /trpc e /health
+  // Any route other than /trpc and /health
   app.use((_req, res) => {
     res.status(404).json({ error: "Rota não encontrada" });
   });

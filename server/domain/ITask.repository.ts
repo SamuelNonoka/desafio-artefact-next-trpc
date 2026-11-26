@@ -2,19 +2,19 @@ import type { CursorPositionInputDto } from "./Pagination";
 import type { CreateTaskInputDto, Task, UpdateTaskInputDto } from "./Task";
 
 /**
- * Contrato de persistência de tarefas.
- * Implementações: PrismaTaskRepository (produção) e InMemoryTaskRepository (testes).
+ * Task persistence contract.
+ * Implementations: PrismaTaskRepository (production) and InMemoryTaskRepository (tests).
  */
 export interface ITaskRepository {
-  /** Tarefas ordenadas por dataCriacao desc, id desc, a partir de "after" (exclusivo). */
+  /** Tasks ordered by dataCriacao desc, id desc, starting after "after" (exclusive). */
   findAfter(params: {
     after?: CursorPositionInputDto;
     take: number;
   }): Promise<Task[]>;
   findById(id: string): Promise<Task | undefined>;
   create(data: CreateTaskInputDto): Promise<Task>;
-  /** Substitui os dados editáveis. Retorna undefined se a tarefa não existir. */
+  /** Replaces the editable data. Returns undefined if the task does not exist. */
   update(id: string, data: UpdateTaskInputDto): Promise<Task | undefined>;
-  /** Lança TaskNotFoundError se a tarefa não existir. */
+  /** Throws TaskNotFoundError if the task does not exist. */
   delete(id: string): Promise<void>;
 }

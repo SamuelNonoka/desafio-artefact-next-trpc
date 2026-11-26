@@ -4,7 +4,7 @@ import type {
   CursorPositionOutputDto,
 } from "../domain/Pagination";
 
-/** Gera um cursor opaco (base64url) a partir da posição do último item da página. */
+/** Builds an opaque cursor (base64url) from the position of the page's last item. */
 export function encodeCursor({
   dataCriacao,
   id,
@@ -14,7 +14,7 @@ export function encodeCursor({
   ).toString("base64url");
 }
 
-/** Lê o cursor recebido do cliente. Lança InvalidCursorError se estiver malformado. */
+/** Parses the cursor received from the client. Throws InvalidCursorError if malformed. */
 export function decodeCursor(cursor: string): CursorPositionOutputDto {
   try {
     const { d, i } = JSON.parse(

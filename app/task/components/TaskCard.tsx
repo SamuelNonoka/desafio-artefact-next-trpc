@@ -5,7 +5,7 @@ import type { Task } from "@/app/lib/TRPC";
 
 type TaskCardProps = {
   task: Task;
-  /** Posição na página: usada para escalonar a animação de entrada. */
+  /** Position on the page: used to stagger the entrance animation. */
   index: number;
   onDelete: (task: Task) => void;
 };
@@ -34,7 +34,7 @@ export function TaskCard({ task, index, onDelete }: TaskCardProps) {
           </p>
         </div>
 
-        {/* No desktop as ações aparecem no hover; no celular ficam sempre visíveis */}
+        {/* On desktop the actions appear on hover; on mobile they are always visible */}
         <div className="flex shrink-0 gap-1 transition-opacity duration-200 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100">
           <Link
             href={`/task/${task.id}/edit`}

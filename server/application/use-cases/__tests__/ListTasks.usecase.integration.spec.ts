@@ -43,7 +43,7 @@ describe("ListTasksUseCase (integração)", () => {
   });
 
   it("desempata por id desc quando dataCriacao é igual", async () => {
-    // Sem avançar o relógio: todas com o mesmo dataCriacao
+    // Without advancing the clock: all with the same dataCriacao
     const created = [];
     for (let n = 0; n < 5; n++) {
       created.push(await ctx.useCases.createTask.execute({ titulo: `T${n}` }));
@@ -56,7 +56,7 @@ describe("ListTasksUseCase (integração)", () => {
   });
 
   it("excluir um item já visto não afeta a próxima página", async () => {
-    const created = await seed(ctx.useCases, 5); // lista: 5,4,3,2,1
+    const created = await seed(ctx.useCases, 5); // list: 5,4,3,2,1
     const firstPage = await ctx.useCases.listTasks.execute({ limit: 2 });
     expect(firstPage.items.map((t) => t.id)).toEqual([
       created[4]!.id,

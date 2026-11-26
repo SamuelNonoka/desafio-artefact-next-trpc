@@ -1,6 +1,6 @@
 import { Loader2 } from "lucide-react";
 
-/** Exibido pelo Next durante a navegação entre páginas. */
+/** Shown by Next while navigating between pages. */
 export default function Loading() {
   return (
     <div

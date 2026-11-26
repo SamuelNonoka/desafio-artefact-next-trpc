@@ -5,6 +5,6 @@ export type Task = {
   dataCriacao: Date;
 };
 
-/** Dados editáveis de uma tarefa (id e dataCriacao são gerados automaticamente). */
+/** Editable data of a task (id and dataCriacao are generated automatically). */
 export type CreateTaskInputDto = Pick<Task, "titulo" | "descricao">;
 export type UpdateTaskInputDto = Pick<Task, "titulo" | "descricao">;

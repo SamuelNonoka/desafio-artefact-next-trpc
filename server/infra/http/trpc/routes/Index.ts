@@ -5,5 +5,5 @@ export const appRouter = router({
   task: taskRouter,
 });
 
-/** Tipo importado pelo frontend para ter tipagem de ponta a ponta. */
+/** Type imported by the frontend for end-to-end typing. */
 export type AppRouter = typeof appRouter;

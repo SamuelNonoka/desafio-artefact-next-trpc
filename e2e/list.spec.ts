@@ -9,8 +9,8 @@ test("lista tarefas com scroll infinito até o fim", async ({ page }) => {
   const cards = page.locator("li h3");
   await expect(cards).toHaveCount(10);
 
-  // Outros specs criam tarefas, então o total pode passar das 35 do seed:
-  // rola até o fim, página a página, sem depender de uma contagem exata.
+  // Other specs create tasks, so the total may exceed the 35 from the seed:
+  // scroll to the end, page by page, without relying on an exact count.
   const fim = page.getByText("Você chegou ao fim da lista ✓");
   await expect(async () => {
     await page.mouse.wheel(0, 10_000);

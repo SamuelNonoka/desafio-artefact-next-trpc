@@ -12,7 +12,7 @@ export function useDeleteTask() {
 
   const deleteTask = trpc.task.delete.useMutation({
     onSuccess: ({ id }) => {
-      // Remove do cache sem recarregar todas as páginas
+      // Remove from the cache without refetching every page
       utils.task.list.setInfiniteData({ limit: PAGE_SIZE }, (data) =>
         data
           ? {

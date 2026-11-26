@@ -8,7 +8,7 @@ test("edita uma tarefa", async ({ page }) => {
   await page.getByRole("link", { name: `Editar a tarefa ${titulo}` }).click();
   await expect(page.getByRole("heading", { name: "Editar tarefa" })).toBeVisible();
 
-  // getByRole ignora o form de /task/new que fica oculto no DOM (cacheComponents)
+  // getByRole ignores the /task/new form that stays hidden in the DOM (cacheComponents)
   const tituloInput = page.getByRole("textbox", { name: /Título/ });
   const descricaoInput = page.getByRole("textbox", { name: /Descrição/ });
   await expect(tituloInput).toHaveValue(titulo);
@@ -21,7 +21,7 @@ test("edita uma tarefa", async ({ page }) => {
 
   await expect(page.getByText("Tarefa atualizada")).toBeVisible();
   await expect(page).toHaveURL("/");
-  // Restringe ao card editado: o banco pode ter outras tarefas "Alterada"
+  // Scope to the edited card: the database may have other "Alterada" tasks
   const card = page
     .getByRole("listitem")
     .filter({ has: page.getByRole("heading", { name: novo }) });
@@ -33,8 +33,8 @@ test("não permite salvar título vazio", async ({ page }) => {
   const titulo = uniqueTitle("E2E editar vazio");
   await createTask(page, titulo);
   await page.getByRole("link", { name: `Editar a tarefa ${titulo}` }).click();
-  // Com cacheComponents, o form de /task/new continua no DOM (oculto).
-  // getByRole ignora elementos ocultos; o toHaveValue espera a tarefa carregar.
+  // With cacheComponents, the /task/new form stays in the DOM (hidden).
+  // getByRole ignores hidden elements; toHaveValue waits for the task to load.
   const tituloInput = page.getByRole("textbox", { name: /Título/ });
   await expect(tituloInput).toHaveValue(titulo);
   await tituloInput.fill("");
@@ -45,7 +45,7 @@ test("não permite salvar título vazio", async ({ page }) => {
 test("id inexistente mostra tarefa não encontrada", async ({ page }) => {
   await page.goto("/task/00000000-0000-4000-8000-000000000000/edit");
   await expect(page.getByText("Tarefa não encontrada")).toBeVisible();
-  // O cabeçalho também tem um "Voltar para a lista": usa o da mensagem
+  // The header also has a "Voltar para a lista": use the one in the message
   await page
     .getByRole("status")
     .getByRole("link", { name: "Voltar para a lista" })

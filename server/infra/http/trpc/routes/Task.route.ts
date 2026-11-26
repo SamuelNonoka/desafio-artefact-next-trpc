@@ -6,7 +6,7 @@ import {
   updateTaskInput,
 } from "../../../../domain/Task.schema";
 
-/** Camada fina: valida a entrada (Zod), chama o caso de uso e devolve o resultado. */
+/** Thin layer: validates the input (Zod), calls the use case and returns the result. */
 export const taskRouter = router({
   list: publicProcedure
     .input(listTasksInput)

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Animações básicas: viram utilitários como "animate-fade-in-up" */
+/* Basic animations: become utilities like "animate-fade-in-up" */
 @theme {
   --animate-fade-in: fade-in 0.3s ease-out both;
   --animate-fade-in-up: fade-in-up 0.4s ease-out both;
@@ -54,7 +54,7 @@
   }
 }
 
-/* Acessibilidade: quem prefere menos movimento não vê as animações */
+/* Accessibility: users who prefer reduced motion don't see the animations */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

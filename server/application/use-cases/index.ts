@@ -5,7 +5,7 @@ import { CreateTaskUseCase } from "./CreateTask.usecase";
 import { UpdateTaskUseCase } from "./UpdateTask.usecase";
 import { DeleteTaskUseCase } from "./DeleteTask.usecase";
 
-/** Monta todos os casos de uso a partir de um repositório (qualquer implementação). */
+/** Builds all use cases from a repository (any implementation). */
 export function makeUseCases(repository: ITaskRepository) {
   return {
     listTasks: new ListTasksUseCase(repository),

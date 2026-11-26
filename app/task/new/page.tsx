@@ -28,7 +28,7 @@ export default function NewTaskPage() {
       />
       <TaskForm
         submitLabel="Criar tarefa"
-        // isSuccess mantém o botão em loading até a navegação terminar
+        // isSuccess keeps the button loading until navigation finishes
         pending={createTask.isPending || createTask.isSuccess}
         serverError={createTask.error}
         onSubmit={(values) => createTask.mutate(values)}

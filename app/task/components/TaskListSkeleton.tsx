@@ -1,4 +1,4 @@
-/** Placeholder animado (pulse) exibido enquanto a lista de tarefas carrega. */
+/** Animated (pulse) placeholder shown while the task list loads. */
 
 export function TaskListSkeleton({ count = 4 }: { count?: number }) {
   return (

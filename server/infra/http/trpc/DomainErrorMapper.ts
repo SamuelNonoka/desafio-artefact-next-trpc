@@ -5,7 +5,7 @@ import {
   TaskNotFoundError,
 } from "../../../domain/Errors";
 
-/** Único ponto que traduz erros de domínio para códigos tRPC/HTTP. */
+/** Single place that maps domain errors to tRPC/HTTP codes. */
 export function toTRPCError(error: DomainError): TRPCError {
   let code: TRPCError["code"] = "BAD_REQUEST";
 

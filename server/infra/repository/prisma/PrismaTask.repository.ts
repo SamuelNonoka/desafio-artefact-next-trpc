@@ -9,7 +9,7 @@ import type {
 import type { ITaskRepository } from "../../../domain/ITask.repository";
 import { toDomain } from "./Task.acl";
 
-/** P2025 = "registro não encontrado" (ex.: excluído entre a verificação e a escrita). */
+/** P2025 = "record not found" (e.g. deleted between the check and the write). */
 function isNotFound(error: unknown): boolean {
   return (
     error instanceof Prisma.PrismaClientKnownRequestError &&
@@ -61,8 +61,8 @@ export class PrismaTaskRepository implements ITaskRepository {
     try {
       const row = await this.prisma.task.update({
         where: { id },
-        // No Prisma, undefined significa "não alterar". Como a edição substitui
-        // os dados, descrição ausente precisa virar null para limpar o campo.
+        // In Prisma, undefined means "do not change". Since editing replaces
+        // the data, a missing descricao must become null to clear the field.
         data: { titulo: data.titulo, descricao: data.descricao ?? null },
       });
       return toDomain(row);

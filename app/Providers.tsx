@@ -6,7 +6,7 @@ import { useState, type ReactNode } from "react";
 import superjson from "superjson";
 import { trpc } from "./lib/TRPC";
 
-/** No navegador usa URL relativa; na renderização do servidor precisa da URL completa. */
+/** In the browser a relative URL works; server-side rendering needs the full URL. */
 function getBaseUrl() {
   if (typeof window !== "undefined") return "";
   return `http://localhost:${process.env.PORT ?? 3000}`;
@@ -17,7 +17,7 @@ function makeQueryClient() {
     defaultOptions: {
       queries: {
         staleTime: 30_000,
-        // Erros 4xx (não encontrado, validação) não melhoram tentando de novo
+        // 4xx errors (not found, validation) won't improve by retrying
         retry: (failureCount, error) => {
           const status =
             error instanceof TRPCClientError

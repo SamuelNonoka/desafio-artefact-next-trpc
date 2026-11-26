@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Button } from "@/app/components/ui/Button";
 import { StateMessage } from "@/app/components/ui/StateMessage";
 
-/** Captura erros inesperados de renderização em qualquer página. */
+/** Catches unexpected rendering errors on any page. */
 export default function GlobalError({
   error,
   reset,

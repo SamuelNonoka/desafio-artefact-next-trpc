@@ -2,7 +2,7 @@ import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { useCases } from "@/server/Bootstrap";
 import { appRouter } from "@/server/infra/http/trpc/routes/Index";
 
-/** Expõe o router tRPC em /api/trpc (substitui o servidor Express). */
+/** Exposes the tRPC router at /api/trpc (replaces the Express server). */
 function handler(req: Request) {
   return fetchRequestHandler({
     endpoint: "/api/trpc",
@@ -10,7 +10,7 @@ function handler(req: Request) {
     router: appRouter,
     createContext: () => ({ useCases }),
     onError({ path, error }) {
-      // Validação e 404 são esperados; só registramos o que é inesperado
+      // Validation and 404 are expected; only log what is unexpected
       if (error.code === "INTERNAL_SERVER_ERROR") {
         console.error(`❌ Erro inesperado em "${path}":`, error.cause ?? error);
       }

@@ -20,7 +20,7 @@ type TaskFormProps = {
   defaultValues?: TaskFormValues;
   submitLabel: string;
   pending: boolean;
-  /** Erro da mutation: usado para destacar campos rejeitados pela API. */
+  /** Mutation error: used to highlight fields rejected by the API. */
   serverError?: unknown;
   onSubmit: (values: TaskFormSubmit) => void;
 };
@@ -35,7 +35,7 @@ export function TaskForm({
   onSubmit,
 }: TaskFormProps) {
   const { inputClasses } = useTaskFormHook();
-  // Ids únicos por instância: com Cache Components, rotas ocultas continuam no DOM
+  // Unique ids per instance: with Cache Components, hidden routes stay in the DOM
   const uid = useId();
   const tituloId = `${uid}-titulo`;
   const descricaoId = `${uid}-descricao`;
@@ -53,7 +53,7 @@ export function TaskForm({
   const titulo = useWatch({ control, name: "titulo" }) ?? "";
   const descricao = useWatch({ control, name: "descricao" }) ?? "";
 
-  // Erros de validação vindos da API aparecem no campo correspondente
+  // Validation errors from the API are shown on the matching field
   useEffect(() => {
     const fieldErrors = getFieldErrors(serverError);
     for (const field of FIELDS) {

@@ -1,4 +1,4 @@
-/** Base para erros de regra de negócio. Não conhece HTTP nem tRPC. */
+/** Base for business rule errors. Knows nothing about HTTP or tRPC. */
 export abstract class DomainError extends Error {
   constructor(message: string) {
     super(message);

@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-// Carrega o .env nativamente (Node >= 20.12). Em produção, sem o arquivo,
-// as variáveis vêm do próprio ambiente (Docker, plataforma de deploy etc.).
+// Loads .env natively (Node >= 20.12). In production, without the file,
+// variables come from the environment itself (Docker, deploy platform, etc.).
 try {
   process.loadEnvFile();
 } catch {
-  // sem .env: segue com as variáveis já definidas
+  // no .env: continue with the variables already set
 }
 
 const envSchema = z.object({

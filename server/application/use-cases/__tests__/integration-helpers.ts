@@ -3,8 +3,8 @@ import { InMemoryTaskRepository } from "@/server/infra/repository/in-memory/InMe
 import { makeUseCases, type UseCases } from "..";
 
 /**
- * Registra os hooks do teste: relógio falso (dataCriacao determinística) e um
- * repositório em memória novo a cada teste. Use ctx.useCases dentro dos testes.
+ * Registers the test hooks: fake clock (deterministic dataCriacao) and a
+ * fresh in-memory repository for each test. Use ctx.useCases inside the tests.
  */
 export function setupIntegration(): { useCases: UseCases } {
   const ctx = {} as { useCases: UseCases };
@@ -22,7 +22,7 @@ export function setupIntegration(): { useCases: UseCases } {
   return ctx;
 }
 
-/** Cria tarefas avançando 1s entre elas; a última criada é a mais recente. */
+/** Creates tasks advancing 1s between them; the last one created is the most recent. */
 export async function seed(useCases: UseCases, count: number) {
   const created = [];
   for (let n = 1; n <= count; n++) {
@@ -32,7 +32,7 @@ export async function seed(useCases: UseCases, count: number) {
   return created;
 }
 
-/** Percorre todas as páginas seguindo nextCursor e retorna os ids de cada página. */
+/** Walks through all pages following nextCursor and returns the ids of each page. */
 export async function listAll(useCases: UseCases, limit: number) {
   const pages: string[][] = [];
   let cursor: string | undefined;

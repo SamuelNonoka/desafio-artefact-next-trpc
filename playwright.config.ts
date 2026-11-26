@@ -5,13 +5,13 @@ const E2E_DATABASE_URL = "file:./e2e.db";
 
 export default defineConfig({
   testDir: "./e2e",
-  // Banco compartilhado: execução sequencial
+  // Shared database: run sequentially
   fullyParallel: false,
   workers: 1,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"], ["html", { open: "never" }]],
-  // next dev compila rotas sob demanda: a primeira visita pode passar de 5s
+  // next dev compiles routes on demand: the first visit may take over 5s
   expect: { timeout: 10_000 },
   use: {
     baseURL: `http://localhost:${PORT}`,
@@ -20,7 +20,7 @@ export default defineConfig({
   projects: [
     {
       name: "chrome",
-      // Usa o Google Chrome instalado no sistema
+      // Use the system-installed Google Chrome
       use: { ...devices["Desktop Chrome"], channel: "chrome" },
     },
   ],

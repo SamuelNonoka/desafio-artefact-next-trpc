@@ -3,7 +3,7 @@ import Link from "next/link";
 import { buttonClasses } from "@/app/components/ui/Button";
 import { StateMessage } from "@/app/components/ui/StateMessage";
 
-/** Página 404 para rotas inexistentes. */
+/** 404 page for nonexistent routes. */
 export default function NotFound() {
   return (
     <StateMessage

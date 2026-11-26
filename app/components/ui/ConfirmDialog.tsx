@@ -13,7 +13,7 @@ type ConfirmDialogProps = {
   onCancel: () => void;
 };
 
-/** Modal de confirmação com overlay (fade) e painel (scale). Fecha com Esc ou clique fora. */
+/** Confirmation modal with overlay (fade) and panel (scale). Closes on Esc or outside click. */
 export function ConfirmDialog({
   open,
   title,

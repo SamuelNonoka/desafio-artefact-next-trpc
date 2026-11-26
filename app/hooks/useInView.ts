@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Chama "onVisible" quando o elemento entra na tela (com 200px de antecedência).
- * Usado como "sentinela" no fim da lista para o scroll infinito.
+ * Calls "onVisible" when the element enters the viewport (200px in advance).
+ * Used as a "sentinel" at the end of the list for infinite scroll.
  */
 export function useInView<T extends Element>(
   onVisible: () => void,

@@ -9,7 +9,7 @@ type StateMessageProps = {
   action?: ReactNode;
 };
 
-/** Bloco centralizado para estados de vazio, erro e "não encontrado". */
+/** Centered block for empty, error and "not found" states. */
 export function StateMessage({
   icon: Icon,
   title,

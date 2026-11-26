@@ -26,7 +26,7 @@ test("cria tarefa com sucesso", async ({ page }) => {
 
   await expect(page.getByText("Tarefa criada com sucesso")).toBeVisible();
   await expect(page).toHaveURL("/");
-  // Restringe ao card criado: o banco pode ter tarefas de execuções anteriores
+  // Scope to the created card: the database may have tasks from previous runs
   const card = page
     .getByRole("listitem")
     .filter({ has: page.getByRole("heading", { name: titulo }) });

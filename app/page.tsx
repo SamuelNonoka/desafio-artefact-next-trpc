@@ -28,7 +28,7 @@ export default function TaskListPage() {
   function renderContent() {
     if (isInitialLoading) return <TaskListSkeleton />;
 
-    // Erro ao carregar a primeira página
+    // Error loading the first page
     if (isErrorState) {
       return (
         <ListTaskErrorState
@@ -39,12 +39,12 @@ export default function TaskListPage() {
       );
     }
 
-    // Lista vazia
+    // Empty list
     if (isEmptyState) {
       return <ListTaskEmptyState />;
     }
 
-    // Lista + rodapé do scroll infinito
+    // List + infinite scroll footer
     return (
       <>
         <ul className="space-y-3">

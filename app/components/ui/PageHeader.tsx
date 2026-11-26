@@ -7,7 +7,7 @@ type PageHeaderProps = {
   backHref?: string;
 };
 
-/** Cabeçalho das telas de cadastro e edição, com link de volta para a lista. */
+/** Header for the create and edit screens, with a link back to the list. */
 export function PageHeader({
   title,
   description,

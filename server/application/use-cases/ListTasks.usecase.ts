@@ -17,7 +17,7 @@ export class ListTasksUseCase {
   }: ListTasksInputDto): Promise<CursorPage<Task>> {
     const after = cursor ? decodeCursor(cursor) : undefined;
 
-    // Busca 1 item a mais para saber se existe próxima página
+    // Fetch 1 extra item to know whether there is a next page
     const rows = await this.tasks.findAfter({ after, take: limit + 1 });
 
     const hasMore = rows.length > limit;
